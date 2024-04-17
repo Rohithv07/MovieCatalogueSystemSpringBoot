@@ -1,108 +1,164 @@
 package com.catalogue.entity;
 
 import java.sql.Timestamp;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.sql.Date;
 
-
+@Entity
+@Table(name = "USERS")
 public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "USER_ID")
+	private long userId;
+	@Column(name = "USER_NAME", length = 30)
+	private String userName;
+	@Column(name = "USER_ROLE", length = 30)
+	private String userRole;
+	@Column(name = "USER_EMAIL", length = 80)
+	private String userEmail;
+	@Column(name = "USER_PHONE_NUMBER", length = 20)
+	private String userPhoneNumber;
+	@Column(name = "USER_FIRST_NAME", length = 30)
+	private String userFirstName;
+	@Column(name = "USER_LAST_NAME", length = 30)
+	private String userLastName;
+	@Column(name = "USER_DOB")
+	private Date userDOB;
+	@Column(name = "USER_IDENTITY", length = 20)
+	private String userIdentity;
+	@Column(name = "USER_PASSWORD", length = 500)
+	private String userPassword;
+	@Column(name = "CREATED_AT")
+	private Timestamp createdAt;
 
-    long user_id;
-    String user_name;
-    String user_role;
-    String user_email;
-    String user_phone_number;
-    String user_first_name;
-    String user_last_name;
-    Date user_dob;
-    String user_identity;
-    String user_password;
-    Timestamp created_at;
+	public User() {
 
-    public long getUser_id() {
-        return user_id;
-    }
+	}
 
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
-    }
+	/**
+	 * @param userId
+	 * @param userName
+	 * @param userRole
+	 * @param userEmail
+	 * @param userPhoneNumber
+	 * @param userFirstName
+	 * @param userLastName
+	 * @param userDOB
+	 * @param userIdentity
+	 * @param userPassword
+	 * @param createdAt
+	 */
+	public User(long userId, String userName, String userRole, String userEmail, String userPhoneNumber,
+			String userFirstName, String userLastName, Date userDOB, String userIdentity, String userPassword,
+			Timestamp createdAt) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.userRole = userRole;
+		this.userEmail = userEmail;
+		this.userPhoneNumber = userPhoneNumber;
+		this.userFirstName = userFirstName;
+		this.userLastName = userLastName;
+		this.userDOB = userDOB;
+		this.userIdentity = userIdentity;
+		this.userPassword = userPassword;
+		this.createdAt = createdAt;
+	}
 
-    public String getUser_name() {
-        return user_name;
-    }
+	public long getUserId() {
+		return userId;
+	}
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
-    }
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
 
-    public String getUser_role() {
-        return user_role;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public void setUser_role(String user_role) {
-        this.user_role = user_role;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public String getUser_email() {
-        return user_email;
-    }
+	public String getUserRole() {
+		return userRole;
+	}
 
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
-    }
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
 
-    public String getUser_phone_number() {
-        return user_phone_number;
-    }
+	public String getUserEmail() {
+		return userEmail;
+	}
 
-    public void setUser_phone_number(String user_phone_number) {
-        this.user_phone_number = user_phone_number;
-    }
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
 
-    public String getUser_first_name() {
-        return user_first_name;
-    }
+	public String getUserPhoneNumber() {
+		return userPhoneNumber;
+	}
 
-    public void setUser_first_name(String user_first_name) {
-        this.user_first_name = user_first_name;
-    }
+	public void setUserPhoneNumber(String userPhoneNumber) {
+		this.userPhoneNumber = userPhoneNumber;
+	}
 
-    public String getUser_last_name() {
-        return user_last_name;
-    }
+	public String getUserFirstName() {
+		return userFirstName;
+	}
 
-    public void setUser_last_name(String user_last_name) {
-        this.user_last_name = user_last_name;
-    }
+	public void setUserFirstName(String userFirstName) {
+		this.userFirstName = userFirstName;
+	}
 
-    public Date getUser_dob() {
-        return user_dob;
-    }
+	public String getUserLastName() {
+		return userLastName;
+	}
 
-    public void setUser_dob(Date user_dob) {
-        this.user_dob = user_dob;
-    }
+	public void setUserLastName(String userLastName) {
+		this.userLastName = userLastName;
+	}
 
-    public String getUser_identity() {
-        return user_identity;
-    }
+	public Date getUserDOB() {
+		return userDOB;
+	}
 
-    public void setUser_identity(String user_identity) {
-        this.user_identity = user_identity;
-    }
+	public void setUserDOB(Date userDOB) {
+		this.userDOB = userDOB;
+	}
 
-    public String getUser_password() {
-        return user_password;
-    }
+	public String getUserIdentity() {
+		return userIdentity;
+	}
 
-    public void setUser_password(String user_password) {
-        this.user_password = user_password;
-    }
+	public void setUserIdentity(String userIdentity) {
+		this.userIdentity = userIdentity;
+	}
 
-    public Timestamp getCreated_at() {
-        return created_at;
-    }
+	public String getUserPassword() {
+		return userPassword;
+	}
 
-    public void setCreated_at(Timestamp created_at) {
-        this.created_at = created_at;
-    }
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+
+	public Timestamp getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
+	}
+
 }

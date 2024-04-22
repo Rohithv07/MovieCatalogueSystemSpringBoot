@@ -9,7 +9,7 @@ public class State {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "STATE_ID")
-	private long stateId;
+	private Long stateId;
 
 	@Column(name = "STATE_NAME", length = 30)
 	private String stateName;
@@ -18,11 +18,11 @@ public class State {
 	@JoinColumn(name = "COUNTRY_ID", referencedColumnName = "COUNTRY_ID")
 	private Country country;
 
-	public long getStateId() {
+	public Long getStateId() {
 		return stateId;
 	}
 
-	public void setStateId(long stateId) {
+	public void setStateId(Long stateId) {
 		this.stateId = stateId;
 	}
 
@@ -45,7 +45,7 @@ public class State {
 	public State() {
 	}
 
-	public State(long stateId, String stateName, Country country) {
+	public State(Long stateId, String stateName, Country country) {
 		super();
 		this.stateId = stateId;
 		this.stateName = stateName;

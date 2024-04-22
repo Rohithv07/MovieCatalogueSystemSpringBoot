@@ -14,7 +14,7 @@ public class Country {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "COUNTRY_ID")
-	private long countryId;
+	private Long countryId;
 	@Column(name = "COUNTRY_NAME", length = 80)
 	private String countryName;
 
@@ -25,17 +25,17 @@ public class Country {
 	 * @param countryId
 	 * @param countryName
 	 */
-	public Country(long countryId, String countryName) {
+	public Country(Long countryId, String countryName) {
 		super();
 		this.countryId = countryId;
 		this.countryName = countryName;
 	}
 
-	public long getCountryId() {
+	public Long getCountryId() {
 		return countryId;
 	}
 
-	public void setCountryId(long countryId) {
+	public void setCountryId(Long countryId) {
 		this.countryId = countryId;
 	}
 

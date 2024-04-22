@@ -3,13 +3,13 @@ package com.catalogue.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "DISTRICT")
-public class District {
+@Table(name = "CITIES")
+public class Cities {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "DISTRICT_ID")
-	private long districtId;
+	private Long districtId;
 
 	@Column(name = "DISTRICT_NAME", length = 30)
 	private String districtName;
@@ -18,11 +18,11 @@ public class District {
 	@JoinColumn(name = "STATE_ID", referencedColumnName = "STATE_ID")
 	private State state;
 
-	public long getDistrictId() {
+	public Long getDistrictId() {
 		return districtId;
 	}
 
-	public void setDistrictId(long districtId) {
+	public void setDistrictId(Long districtId) {
 		this.districtId = districtId;
 	}
 
@@ -42,10 +42,10 @@ public class District {
 		this.state = state;
 	}
 
-	public District() {
+	public Cities() {
 	}
 
-	public District(long districtId, String districtName, State state) {
+	public Cities(Long districtId, String districtName, State state) {
 		super();
 		this.districtId = districtId;
 		this.districtName = districtName;

@@ -17,7 +17,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "USER_ID")
-	private long userId;
+	private Long userId;
 	@Column(name = "USER_NAME", length = 30)
 	private String userName;
 	@Column(name = "USER_ROLE", length = 30)
@@ -56,7 +56,7 @@ public class User {
 	 * @param userPassword
 	 * @param createdAt
 	 */
-	public User(long userId, String userName, String userRole, String userEmail, String userPhoneNumber,
+	public User(Long userId, String userName, String userRole, String userEmail, String userPhoneNumber,
 			String userFirstName, String userLastName, Date userDOB, String userIdentity, String userPassword,
 			Timestamp createdAt) {
 		super();
@@ -73,11 +73,11 @@ public class User {
 		this.createdAt = createdAt;
 	}
 
-	public long getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 

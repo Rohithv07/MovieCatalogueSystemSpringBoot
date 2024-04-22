@@ -17,7 +17,7 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ADDRESS_ID")
-	private long addressId;
+	private Long addressId;
 	@OneToOne
 	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
 	private User user;
@@ -37,7 +37,7 @@ public class Address {
 	private State state;
 	@ManyToOne
 	@JoinColumn(name = "DISTRICT_ID", referencedColumnName = "DISTRICT_ID")
-	private District district;
+	private Cities district;
 
 	public Address() {
 	}
@@ -53,8 +53,8 @@ public class Address {
 	 * @param state
 	 * @param district
 	 */
-	public Address(long addressId, User user, int addressPincode, String addressLine1, String addressLine2,
-			String addressLandmark, Country country, State state, District district) {
+	public Address(Long addressId, User user, int addressPincode, String addressLine1, String addressLine2,
+			String addressLandmark, Country country, State state, Cities district) {
 		super();
 		this.addressId = addressId;
 		this.user = user;
@@ -67,11 +67,11 @@ public class Address {
 		this.district = district;
 	}
 
-	public long getAddressId() {
+	public Long getAddressId() {
 		return addressId;
 	}
 
-	public void setAddressId(long addressId) {
+	public void setAddressId(Long addressId) {
 		this.addressId = addressId;
 	}
 
@@ -131,11 +131,11 @@ public class Address {
 		this.state = state;
 	}
 
-	public District getDistrict() {
+	public Cities getDistrict() {
 		return district;
 	}
 
-	public void setDistrict(District district) {
+	public void setDistrict(Cities district) {
 		this.district = district;
 	}
 

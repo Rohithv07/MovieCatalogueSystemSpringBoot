@@ -3,7 +3,7 @@ package com.catalogue.moviecatalogueauthenticator.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "STATE")
+@Table(name = "STATES")
 public class State {
 
 	@Id

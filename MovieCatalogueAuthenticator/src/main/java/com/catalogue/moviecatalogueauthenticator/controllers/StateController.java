@@ -3,6 +3,8 @@ package com.catalogue.moviecatalogueauthenticator.controllers;
 import com.catalogue.moviecatalogueauthenticator.dto.ResponseMessage;
 import com.catalogue.moviecatalogueauthenticator.services.StateService;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,29 +24,29 @@ public class StateController {
 	}
 
 	@GetMapping("/getAllStates")
-	public ResponseMessage getAllState() {
+	public ResponseEntity<ResponseMessage> getAllState() {
 		ResponseMessage respMessage = new ResponseMessage();
 		respMessage.setData(stateService.getAllState());
 		respMessage.setMessage("SUCCESS");
-		respMessage.setStatusCode("200");
-		return respMessage;
+		respMessage.setStatusCode(HttpStatus.OK.value());
+		return ResponseEntity.status(HttpStatus.OK).body(respMessage);
 	}
 
 	@GetMapping("/getStateById")
-	public ResponseMessage getStateById(@RequestParam("countryId") Long stateId) {
+	public ResponseEntity<ResponseMessage> getStateById(@RequestParam("stateId") Long stateId) {
 		ResponseMessage respMessage = new ResponseMessage();
 		respMessage.setData(stateService.getStateById(stateId));
 		respMessage.setMessage("SUCCESS");
-		respMessage.setStatusCode("200");
-		return respMessage;
+		respMessage.setStatusCode(HttpStatus.OK.value());
+		return ResponseEntity.status(HttpStatus.OK).body(respMessage);
 	}
 
 	@GetMapping("/getStateByCountryId")
-	public ResponseMessage getStateByCountryId(@RequestParam("countryId") Long countryId) {
+	public ResponseEntity<ResponseMessage> getStateByCountryId(@RequestParam("countryId") Long countryId) {
 		ResponseMessage respMessage = new ResponseMessage();
 		respMessage.setData(stateService.getStateByCountryId(countryId));
 		respMessage.setMessage("SUCCESS");
-		respMessage.setStatusCode("200");
-		return respMessage;
+		respMessage.setStatusCode(HttpStatus.OK.value());
+		return ResponseEntity.status(HttpStatus.OK).body(respMessage);
 	}
 }

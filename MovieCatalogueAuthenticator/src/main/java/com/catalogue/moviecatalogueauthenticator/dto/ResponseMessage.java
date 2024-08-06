@@ -9,7 +9,7 @@ package com.catalogue.moviecatalogueauthenticator.dto;
 public class ResponseMessage {
 
 	private Object data;
-	private String statusCode;
+	private int statusCode;
 	private String message;
 
 	/**
@@ -17,7 +17,7 @@ public class ResponseMessage {
 	 * @param statusCode
 	 * @param message
 	 */
-	public ResponseMessage(Object data, String statusCode, String message) {
+	public ResponseMessage(Object data, int statusCode, String message) {
 		super();
 		this.data = data;
 		this.statusCode = statusCode;
@@ -35,11 +35,11 @@ public class ResponseMessage {
 		this.data = data;
 	}
 
-	public String getStatusCode() {
+	public int getStatusCode() {
 		return statusCode;
 	}
 
-	public void setStatusCode(String statusCode) {
+	public void setStatusCode(int statusCode) {
 		this.statusCode = statusCode;
 	}
 

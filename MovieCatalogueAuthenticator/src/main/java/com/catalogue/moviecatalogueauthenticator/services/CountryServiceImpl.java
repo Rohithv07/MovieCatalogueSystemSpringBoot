@@ -30,14 +30,18 @@ public class CountryServiceImpl implements CountryService {
 	}
 
 	/**
+	 * Helper method to get all country details.
 	 * 
+	 * @author rohithvazhathody
+	 * @return List&ltCountryDTO&gt
 	 */
 	@Override
 	public List<CountryDTO> getAllCountry() {
 		List<CountryDTO> countryDTOList = new ArrayList<>();
-		CountryDTO countryDTO = new CountryDTO();
+		CountryDTO countryDTO;
 		List<Country> listOfAllCountries = countryRepository.findAll();
 		for (Country country : listOfAllCountries) {
+			countryDTO = new CountryDTO();
 			countryDTO.setCountryId(country.getCountryId());
 			countryDTO.setCountryName(country.getCountryName());
 			countryDTOList.add(countryDTO);
@@ -46,7 +50,11 @@ public class CountryServiceImpl implements CountryService {
 	}
 
 	/**
+	 * Helper method to get the country details based on id
 	 * 
+	 * @param CountryId
+	 * @return CountryDTO
+	 * @author rohithvazhathody
 	 */
 	@Override
 	public CountryDTO getCountryUsingId(Long countryId) {
@@ -55,6 +63,24 @@ public class CountryServiceImpl implements CountryService {
 		if (countryById.isPresent()) {
 			countryDTO.setCountryId(countryById.get().getCountryId());
 			countryDTO.setCountryName(countryById.get().getCountryName());
+		}
+		return countryDTO;
+	}
+
+	/**
+	 * Helper method to get the country details based country name
+	 * 
+	 * @param CountryName
+	 * @return CountryDTO
+	 * @author rohithvazhathody
+	 */
+	@Override
+	public CountryDTO getCountryUsingCountryName(String countryName) {
+		CountryDTO countryDTO = new CountryDTO();
+		Country country = countryRepository.findCountryByCountryName(countryName);
+		if (country != null) {
+			countryDTO.setCountryId(country.getCountryId());
+			countryDTO.setCountryName(country.getCountryName());
 		}
 		return countryDTO;
 	}

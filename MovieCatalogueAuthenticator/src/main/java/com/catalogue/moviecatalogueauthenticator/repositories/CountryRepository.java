@@ -12,5 +12,8 @@ import com.catalogue.moviecatalogueauthenticator.entity.Country;
  *
  */
 public interface CountryRepository extends JpaRepository<Country, Long> {
-
+	
+	public Country findCountryByCountryId(Long countryId);
+	
+	public Country findCountryByCountryName(String countryName);
 }

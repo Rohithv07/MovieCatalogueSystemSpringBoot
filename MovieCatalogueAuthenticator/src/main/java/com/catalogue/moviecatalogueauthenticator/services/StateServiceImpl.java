@@ -29,9 +29,9 @@ public class StateServiceImpl implements StateService {
 	public List<StateDTO> getAllState() {
 		List<State> stateList = new ArrayList<>();
 		List<StateDTO> stateDTOS = new ArrayList<>();
-		StateDTO stateDTO = new StateDTO();
 		stateList = repository.findAll();
 		for (State state : stateList) {
+			StateDTO stateDTO = new StateDTO();
 			stateDTO.setStateId(state.getStateId());
 			stateDTO.setStateName(state.getStateName());
 			stateDTO.setCountry(state.getCountry().getCountryName());
@@ -56,24 +56,17 @@ public class StateServiceImpl implements StateService {
 		return stateDTO;
 	}
 
-	@Override
-	public List<StateDTO> getStateByCountryId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
 	/**
 	 * @param countryId
 	 * @return
 	 */
-	/*
+
 	@Override
 	public List<StateDTO> getStateByCountryId(Long countryId) {
 		List<StateDTO> stateDTOList = new ArrayList<>();
-		StateDTO stateDTO = new StateDTO();
-		List<State> states = repository.findBycountryId(countryId);
+		List<State> states = repository.findByCountry_CountryId(countryId);
 		for (State state : states) {
+			StateDTO stateDTO = new StateDTO();
 			stateDTO.setStateId(state.getStateId());
 			stateDTO.setStateName(state.getStateName());
 			stateDTO.setCountry(state.getCountry().getCountryName());
@@ -81,5 +74,5 @@ public class StateServiceImpl implements StateService {
 		}
 		return stateDTOList;
 	}
-	*/
+
 }

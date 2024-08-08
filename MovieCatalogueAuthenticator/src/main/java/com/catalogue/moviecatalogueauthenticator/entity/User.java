@@ -2,12 +2,7 @@ package com.catalogue.moviecatalogueauthenticator.entity;
 
 import java.sql.Timestamp;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.sql.Date;
 
@@ -18,6 +13,10 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "USER_ID")
 	private Long userId;
+
+	@OneToOne
+	@JoinColumn(name = "ADDRESS_ID", referencedColumnName = "ADDRESS_ID")
+	private Address address;
 	@Column(name = "USER_NAME", length = 30)
 	private String userName;
 	@Column(name = "USER_ROLE", length = 30)
@@ -43,24 +42,9 @@ public class User {
 
 	}
 
-	/**
-	 * @param userId
-	 * @param userName
-	 * @param userRole
-	 * @param userEmail
-	 * @param userPhoneNumber
-	 * @param userFirstName
-	 * @param userLastName
-	 * @param userDOB
-	 * @param userIdentity
-	 * @param userPassword
-	 * @param createdAt
-	 */
-	public User(Long userId, String userName, String userRole, String userEmail, String userPhoneNumber,
-			String userFirstName, String userLastName, Date userDOB, String userIdentity, String userPassword,
-			Timestamp createdAt) {
-		super();
+	public User(Long userId, Address address, String userName, String userRole, String userEmail, String userPhoneNumber, String userFirstName, String userLastName, Date userDOB, String userIdentity, String userPassword, Timestamp createdAt) {
 		this.userId = userId;
+		this.address = address;
 		this.userName = userName;
 		this.userRole = userRole;
 		this.userEmail = userEmail;
@@ -71,6 +55,14 @@ public class User {
 		this.userIdentity = userIdentity;
 		this.userPassword = userPassword;
 		this.createdAt = createdAt;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public Long getUserId() {

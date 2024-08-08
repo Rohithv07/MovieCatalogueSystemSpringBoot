@@ -1,5 +1,6 @@
 package com.catalogue.moviecatalogueauthenticator.controllers;
 
+import com.catalogue.moviecatalogueauthenticator.constants.MovieCatalogConstants;
 import com.catalogue.moviecatalogueauthenticator.dto.ResponseMessage;
 import com.catalogue.moviecatalogueauthenticator.services.StateService;
 
@@ -27,7 +28,7 @@ public class StateController {
 	public ResponseEntity<ResponseMessage> getAllState() {
 		ResponseMessage respMessage = new ResponseMessage();
 		respMessage.setData(stateService.getAllState());
-		respMessage.setMessage("SUCCESS");
+		respMessage.setMessage(MovieCatalogConstants.SUCCESS_MESSAGE);
 		respMessage.setStatusCode(HttpStatus.OK.value());
 		return ResponseEntity.status(HttpStatus.OK).body(respMessage);
 	}
@@ -36,7 +37,7 @@ public class StateController {
 	public ResponseEntity<ResponseMessage> getStateById(@RequestParam("stateId") Long stateId) {
 		ResponseMessage respMessage = new ResponseMessage();
 		respMessage.setData(stateService.getStateById(stateId));
-		respMessage.setMessage("SUCCESS");
+		respMessage.setMessage(MovieCatalogConstants.SUCCESS_MESSAGE);
 		respMessage.setStatusCode(HttpStatus.OK.value());
 		return ResponseEntity.status(HttpStatus.OK).body(respMessage);
 	}
@@ -45,7 +46,7 @@ public class StateController {
 	public ResponseEntity<ResponseMessage> getStateByCountryId(@RequestParam("countryId") Long countryId) {
 		ResponseMessage respMessage = new ResponseMessage();
 		respMessage.setData(stateService.getStateByCountryId(countryId));
-		respMessage.setMessage("SUCCESS");
+		respMessage.setMessage(MovieCatalogConstants.SUCCESS_MESSAGE);
 		respMessage.setStatusCode(HttpStatus.OK.value());
 		return ResponseEntity.status(HttpStatus.OK).body(respMessage);
 	}

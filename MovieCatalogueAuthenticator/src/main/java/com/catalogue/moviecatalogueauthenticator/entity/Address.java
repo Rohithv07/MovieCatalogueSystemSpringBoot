@@ -18,9 +18,6 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ADDRESS_ID")
 	private Long addressId;
-	@OneToOne
-	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
-	private User user;
 	@Column(name = "ADDRESS_PINCODE")
 	private int addressPincode;
 	@Column(name = "ADDRESS_LINE1", length = 60)
@@ -44,7 +41,6 @@ public class Address {
 
 	/**
 	 * @param addressId
-	 * @param user
 	 * @param addressPincode
 	 * @param addressLine1
 	 * @param addressLine2
@@ -53,11 +49,10 @@ public class Address {
 	 * @param state
 	 * @param district
 	 */
-	public Address(Long addressId, User user, int addressPincode, String addressLine1, String addressLine2,
+	public Address(Long addressId, int addressPincode, String addressLine1, String addressLine2,
 			String addressLandmark, Country country, State state, Cities district) {
 		super();
 		this.addressId = addressId;
-		this.user = user;
 		this.addressPincode = addressPincode;
 		this.addressLine1 = addressLine1;
 		this.addressLine2 = addressLine2;
@@ -73,14 +68,6 @@ public class Address {
 
 	public void setAddressId(Long addressId) {
 		this.addressId = addressId;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	public int getAddressPincode() {
